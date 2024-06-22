@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" />
+    <title>latihan sesi 6</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <a onclick="reRender()" id="home">home</a>
+            <a onclick="darkMode()" id="mode"> light-mode</a>
+        </nav>
+        <h1>sesi 6 latihan</h1>
+        <p class="info" id="info"></p>
+
+    </div>
+
+    <!-- initializing function script -->
+    <script>
+        let body = document.body;
+        let info = document.getElementById("info");
+        let mode = document.getElementById("mode");
+        let home = document.getElementById("home");
+
+        const darklimit = 5;
+        let darkCounter = 0;
+        let darkRemainingLeft;
+
+        function darkMode() {
+            if (darkRemainingLeft == 1) {
+                info.textContent = "🗿 JATAH FITUR DARK MODE ANDA  SUDAH HABIS🗿"
+                mode.style.display = "none";
+                home.textContent = "restart"
+                return;
+            }
+            darkCounter += 1;
+            darkRemainingLeft = darklimit - darkCounter;
+
+            // render ke info element
+            info.textContent = `Darkmode dipakai ${darkCounter}x`
+
+
+            body.classList.toggle("dark");
+        }
+
+        function reRender() {
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>
